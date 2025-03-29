@@ -1,0 +1,27 @@
+ /* Reset Css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+:root {
+    --main--color: "",
+    --secondary--color: ""
+}
+
+#root {
+    height: 100%;
+    width: 100%;
+    background-color: transparent !important;
+}
+
+.ion-page {
+    background-color: white;
+    color: black;
+}
