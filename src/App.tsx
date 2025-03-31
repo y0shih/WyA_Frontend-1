@@ -1,4 +1,6 @@
-import { IonApp, setupIonicReact } from '@ionic/react';
+import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonReactRouter } from '@ionic/react-router';
+import { Route } from 'react-router-dom';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -16,14 +18,22 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
-setupIonicReact();
-
 // Import components
+import AboutPage from './pages/about_page/about_page';
+import ContactPage from './pages/contact_page/contact_page';
+import ChattingPage from './pages/chatting_page/chatting_page';
 
+setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
-
+    <IonReactRouter>
+      <IonRouterOutlet>
+        <Route exact path="/dashboard" component={AboutPage} />
+        <Route exact path="/contact" component={ContactPage} />
+        <Route exact path="/chatting" component={ChattingPage} />
+      </IonRouterOutlet>
+    </IonReactRouter>
   </IonApp>
 );
 
