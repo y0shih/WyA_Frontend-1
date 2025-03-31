@@ -1,30 +1,39 @@
 :root {
 --primary-color: #ECF3FB;
---secondary-color: #3E3F46; 
---white: #FFFFFF; 
---shadow-color: rgba(128, 128, 128, 0.15); 
+--secondary-color: #3E3F46;
+--white: #FFFFFF;
+--shadow-color: rgba(128, 128, 128, 0.15);
+--popup-bg: #2C2C2C;
+--border-color: rgba(255, 255, 255, 0.1);
 }
 
 .chat {
+height: 100%;
 display: flex;
 flex-direction: column;
-height: 100%;
 background-color: var(--primary-color);
 }
 
 .chat__header {
+position: relative;
+z-index: 100;
 padding: 16px;
+background: #3A3B3C;
+border-radius: 20px;
+height: 60px; /* Set a fixed header height */
 background-color: var(--primary-color);
 }
 
 .chat__search {
+position: relative;
 display: flex;
 align-items: center;
 gap: 12px;
 background-color: var(--secondary-color);
 padding: 8px 12px;
-border-radius: 24px;
-box-shadow: 0 2px 8px var(--shadow-color); 
+border-radius: 20px 20px 0 0;
+box-shadow: 0 0 10px rgba(128, 128, 128, 0.25);
+border-bottom: 1px solid #808080;
 }
 
 .chat__button--back {
@@ -42,13 +51,24 @@ font-size: 20px;
 }
 
 .chat__input--search {
+position: relative;
 flex: 1;
-background: none;
+cursor: pointer;
+color: white;
+font-size: 12px;
 border: none;
+background: none;
+outline: none;
+}
+
+.chat__input--search input {
+width: 100%;
+padding: 0;
+border: none;
+background-color: transparent;
 color: white;
 font-size: 12px;
 outline: none;
-padding: 4px;
 }
 
 .chat__input--search::placeholder {
@@ -71,6 +91,7 @@ object-fit: cover;
 
 .chat__content {
 flex: 1;
+height: 100%;
 padding: 16px;
 overflow-y: auto;
 background-color: var(--primary-color);
@@ -84,14 +105,14 @@ margin-bottom: 24px;
 font-size: 16px;
 margin-bottom: 12px;
 font-weight: bold;
-color: #000; 
+color: #000;
 }
 
 .chat__container {
 display: flex;
 flex-direction: column;
 gap: 12px;
-padding: 0; 
+padding: 0;
 background-color: var(--primary-color);
 }
 
@@ -99,7 +120,7 @@ background-color: var(--primary-color);
 .chat__list--friends {
 display: flex;
 flex-direction: column;
-gap: 8px; 
+gap: 8px;
 }
 
 .chat__item--request,
@@ -107,16 +128,16 @@ gap: 8px;
 display: flex;
 justify-content: space-between;
 align-items: center;
-padding: 12px 16px; 
-border-radius: 16px; 
-background-color: var(--primary-color); 
-box-shadow: 0 0 10px var(--shadow-color); 
+padding: 12px 16px;
+border-radius: 16px;
+background-color: var(--primary-color);
+box-shadow: 0 0 10px var(--shadow-color);
 }
 
 .chat__user {
 display: flex;
 align-items: center;
-gap: 12px; 
+gap: 12px;
 }
 
 .chat__avatar--user {
@@ -128,8 +149,9 @@ background-color: var(--primary-color);
 }
 
 .chat__avatar--user img {
-width: 100%;
-height: 100%;
+width: 40px;
+height: 40px;
+border-radius: 50%;
 object-fit: cover;
 }
 
@@ -140,8 +162,8 @@ flex-direction: column;
 
 .chat__name--user {
 font-weight: bold;
-font-size: 14px; 
-color: #000; 
+font-size: 14px;
+color: black;
 }
 
 .chat__message--last {
@@ -151,12 +173,12 @@ font-size: 12px;
 
 .chat__actions {
 display: flex;
-gap: 12px; 
+gap: 12px;
 }
 
 .chat__button--decline,
 .chat__button--accept {
-width: 24px; 
+width: 24px;
 height: 24px;
 border: none;
 background: none;
@@ -168,12 +190,68 @@ cursor: pointer;
 
 .chat__button--decline i {
 color: #BD1B23;
-font-size: 20px; 
+font-size: 20px;
 font-weight: bold;
 }
 
 .chat__button--accept i {
 color: #00FF00;
-font-size: 20px; 
+font-size: 20px;
 font-weight: bold;
+}
+
+.chat__search--popup {
+position: relative;
+background: #3A3B3C;
+border-radius: 0 0 20px 20px;
+padding: 16px;
+z-index: 1000;
+width: 100%;
+}
+
+.chat__search--item {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 12px 16px;
+}
+
+.chat__search--item:last-child {
+border-bottom: none;
+}
+
+.chat__search--user {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+
+.chat__avatar--usersearch {
+width: 20px;
+height: 20px;
+border-radius: 50%;
+overflow: hidden;
+background-color: white;
+}
+
+.chat__avatar--usersearch img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+.chat__name--usersearch {
+color: white;
+font-size: 12px;
+}
+
+.chat__button--request {
+background: var(--white);
+color: black;
+border: none;
+padding: 6px 16px;
+border-radius: 6px;
+cursor: pointer;
+font-size: 14px;
+font-weight: normal;
 }

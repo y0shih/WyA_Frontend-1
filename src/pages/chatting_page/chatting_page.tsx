@@ -1,6 +1,6 @@
 // Import library
 import { IonPage } from "@ionic/react";
-import React from "react";
+import React, { useState } from "react";
 
 // Import components
 
@@ -26,16 +26,16 @@ interface Friend extends User {
 
 //Sample data :) 
 const ChattingPage: React.FC = () => {
-  
+  const [isSearchActive, setIsSearchActive] = useState(false);
   const [friendRequests, setFriendRequests] = React.useState<FriendRequest[]>([
     {
-      id: '1',
+      id: 'req_1',
       name: 'Yeezy',
       avatar: '/path-to-avatar.png',
       status: 'pending'
     },
     {
-      id: '2',
+      id: 'req_2',
       name: 'Travis',
       avatar: '/path-to-avatar.png',
       status: 'pending'
@@ -44,20 +44,27 @@ const ChattingPage: React.FC = () => {
 
   const [friends, setFriends] = React.useState<Friend[]>([
     {
-      id: '1',
+      id: 'friend_1',
       name: 'Playboi Carti',
       avatar: '/path-to-avatar.png',
       lastMessage: 'SCHEYYAH',
       lastMessageTime: '2:30 PM'
     },
     {
-      id: '2',
+      id: 'friend_2',
       name: 'Drake',
       avatar: '/path-to-avatar.png',
       lastMessage: "God's Plan",
       lastMessageTime: '1:45 PM'
     }
   ]);
+
+  const allUsers = [...friends, ...friendRequests].map(user => ({
+    id: user.id,
+    name: user.name,
+    avatar: user.avatar,
+    isRequested: 'status' in user
+  }));
 
   const handleRequestAction = (requestId: string, action: 'accept' | 'decline') => {
     setFriendRequests(prev => prev.map(request => 
@@ -80,6 +87,12 @@ const ChattingPage: React.FC = () => {
     }
   };
 
+  const handleSearchClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsSearchActive(true);
+    console.log("Search clicked, isSearchActive:", isSearchActive);
+  };
+
   return (
     <IonPage>
       <div className="chat">
@@ -88,15 +101,38 @@ const ChattingPage: React.FC = () => {
             <button className="chat__button--back">
               <i className="fa-solid fa-caret-left chat__icon--back"></i>
             </button>
-            <input 
-              type="text" 
+            <div 
               className="chat__input--search" 
-              placeholder="Find your friend..." 
-            />
+              onClick={handleSearchClick}
+            >
+              <input
+                type="text"
+                placeholder="Find your friend..."
+                onClick={handleSearchClick}
+              />
+            </div>
             <div className="chat__avatar--profile">
               <img src="/path-to-your-avatar.png" alt="" />
             </div>
           </div>
+          
+          {isSearchActive && (
+            <div className="chat__search--popup">
+              {allUsers.map(user => (
+                <div key={user.id} className="chat__search--item">
+                  <div className="chat__search--user">
+                    <div className="chat__avatar--user">
+                      <img src={user.avatar} alt={user.name} />
+                    </div>
+                    <span className="chat__name--usersearch">{user.name}</span>
+                  </div>
+                  <button className="chat__button--request">
+                    {user.isRequested ? 'Pending' : 'Request'}
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="chat__content">
