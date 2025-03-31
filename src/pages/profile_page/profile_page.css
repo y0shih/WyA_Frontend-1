@@ -133,16 +133,107 @@
 }
 
 .modal__button {
-    background-color: #00ff37;
+    background-color: #00FF00;
     color: white;
     border: none;
     border-radius: 25px;
     padding: 12px;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     transition: background-color 0.2s;
+    width: 50%;
+    align-self: center;
 }
 
 .modal__button:hover {
     background-color: #00e631;
+}
+
+.modal__theme-options {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    padding: 16px 0;
+}
+
+.modal__theme-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    background: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modal__theme-button--active {
+    border-color: #00ff37;
+    background-color: rgba(0, 255, 55, 0.1);
+}
+
+.modal__theme-button:hover {
+    border-color: #00ff37;
+}
+
+.modal__delete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal__title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}
+
+.modal__verify-code {
+    width: 100%;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    gap: 4px;
+}
+
+.modal__input--verify {
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+
+.modal__actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.modal__button--cancel {
+    flex: 1;
+    background-color: #eee;
+    color: #333;
+    margin-right: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__button--cancel:hover {
+    background-color: #ddd;
+}
+
+.modal__button--delete {
+    flex: 1;
+    background-color: #BD1B23;
+    color: white;
+    margin-left: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal__button--delete:hover {
+    background-color: #BD1B23;
 }
