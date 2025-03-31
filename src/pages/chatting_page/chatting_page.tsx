@@ -15,7 +15,7 @@ interface User {
 }
 
 interface FriendRequest extends User {
-  status: 'pending' | 'accepted' | 'declined';
+  status: "accepted" | "declined";
 }
 
 interface Friend extends User {
@@ -27,19 +27,19 @@ interface Friend extends User {
 //Sample data :) 
 const ChattingPage: React.FC = () => {
   const [isSearchActive, setIsSearchActive] = useState(false);
-  const searchRef = useRef<HTMLDivElement>(null);
+  const searchPopupRef = useRef<HTMLDivElement>(null);
   const [friendRequests, setFriendRequests] = React.useState<FriendRequest[]>([
     {
       id: 'req_1',
       name: 'Yeezy',
       avatar: '/path-to-avatar.png',
-      status: 'pending'
+      status: 'accepted'
     },
     {
       id: 'req_2',
       name: 'Travis',
       avatar: '/path-to-avatar.png',
-      status: 'pending'
+      status: 'declined'
     }
   ]);
 
@@ -63,8 +63,7 @@ const ChattingPage: React.FC = () => {
   const allUsers = [...friends, ...friendRequests].map(user => ({
     id: user.id,
     name: user.name,
-    avatar: user.avatar,
-    isRequested: 'status' in user
+    avatar: user.avatar
   }));
 
   const handleRequestAction = (requestId: string, action: 'accept' | 'decline') => {
@@ -88,18 +87,29 @@ const ChattingPage: React.FC = () => {
     }
   };
 
+  const handleSearchClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsSearchActive(true);
+    console.log("Search clicked, isSearchActive:", isSearchActive);
+  };
+
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (searchPopupRef.current && !searchPopupRef.current.contains(event.target as Node)) {
         setIsSearchActive(false);
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    if (isSearchActive) {
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    }
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
     };
-  }, []);
+  }, [isSearchActive]);
 
   return (
     <IonPage>
@@ -109,40 +119,25 @@ const ChattingPage: React.FC = () => {
             <button className="chat__button--back">
               <i className="fa-solid fa-caret-left chat__icon--back"></i>
             </button>
+            
             <div 
-              ref={searchRef}
               className="chat__input--search" 
+              onClick={handleSearchClick}
             >
               <input
                 type="text"
                 placeholder="Find your friend..."
-                onFocus={() => setIsSearchActive(true)}
+                onClick={handleSearchClick}
               />
-              {isSearchActive && (
-                <div className="chat__search--popup">
-                  {allUsers.map(user => (
-                    <div key={user.id} className="chat__search--item">
-                      <div className="chat__search--user">
-                        <div className="chat__avatar--user">
-                          <img src={user.avatar} alt={user.name} />
-                        </div>
-                        <span className="chat__name--usersearch">{user.name}</span>
-                      </div>
-                      <button className="chat__button--request">
-                        {user.isRequested ? 'Pending' : 'Request'}
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
+
             <div className="chat__avatar--profile">
               <img src="/path-to-your-avatar.png" alt="" />
             </div>
           </div>
           
           {isSearchActive && (
-            <div className="chat__search--popup">
+            <div className="chat__search--popup" ref={searchPopupRef}>
               {allUsers.map(user => (
                 <div key={user.id} className="chat__search--item">
                   <div className="chat__search--user">
@@ -152,7 +147,7 @@ const ChattingPage: React.FC = () => {
                     <span className="chat__name--usersearch">{user.name}</span>
                   </div>
                   <button className="chat__button--request">
-                    {user.isRequested ? 'Pending' : 'Request'}
+                    Request
                   </button>
                 </div>
               ))}
@@ -175,18 +170,21 @@ const ChattingPage: React.FC = () => {
                       <span className="chat__name--user">{request.name}</span>
                     </div>
                     <div className="chat__actions">
+
                       <button 
                         className="chat__button--decline"
                         onClick={() => handleRequestAction(request.id, 'decline')}
                       >
                         <i className="fa-solid fa-xmark"></i>
                       </button>
+
                       <button 
                         className="chat__button--accept"
                         onClick={() => handleRequestAction(request.id, 'accept')}
                       >
                         <i className="fa-solid fa-check"></i>
                       </button>
+
                     </div>
                   </div>
                 ))}
@@ -206,7 +204,10 @@ const ChattingPage: React.FC = () => {
                     </div>
                     <div className="chat__info--user">
                       <span className="chat__name--user">{friend.name}</span>
-                      <span className="chat__message--last">Last message: {friend.lastMessage}</span>
+                      <div className="chat__message--container">
+                        <span className="chat__message--label">Last message: </span>
+                        <span className="chat__message--text">{friend.lastMessage}</span>
+                      </div>
                     </div>
                   </div>
                 </div>

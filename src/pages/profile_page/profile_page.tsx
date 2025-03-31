@@ -100,6 +100,7 @@ const ProfilePage: React.FC = () => {
                                 className="modal__input"
                             />
                         </div>
+
                         <div className="modal__input-group">
                             <i className="fa-solid fa-fingerprint modal__icon"></i>
                             <input
@@ -125,6 +126,7 @@ const ProfilePage: React.FC = () => {
                                 className="modal__input"
                             />
                         </div>
+
                         <div className="modal__input-group">
                             <i className="fa-solid fa-fingerprint modal__icon"></i>
                             <input
@@ -150,6 +152,7 @@ const ProfilePage: React.FC = () => {
                                 className="modal__input"
                             />
                         </div>
+
                         <div className="modal__input-group">
                             <i className="fa-solid fa-fingerprint modal__icon"></i>
                             <input
@@ -158,6 +161,7 @@ const ProfilePage: React.FC = () => {
                                 className="modal__input"
                             />
                         </div>
+
                         <div className="modal__input-group">
                             <i className="fa-solid fa-fingerprint modal__icon"></i>
                             <input
@@ -178,6 +182,7 @@ const ProfilePage: React.FC = () => {
                             <i className="fa-solid fa-sun modal__icon"></i>
                             Light
                         </button>
+
                         <button 
                             className={`modal__theme-button ${selectedTheme === 'dark' ? 'modal__theme-button--active' : ''}`}
                             onClick={() => handleThemeChange('dark')}
@@ -205,6 +210,7 @@ const ProfilePage: React.FC = () => {
                             >
                                 Cancel
                             </button>
+
                             <button 
                                 className="modal__button modal__button--delete"
                                 onClick={handleSubmit}
@@ -230,34 +236,22 @@ const ProfilePage: React.FC = () => {
                 </div>
 
                 <div className="settings__content">
-                    <button 
-                        className="settings__item"
-                        onClick={() => setActiveModal('name')}
-                    >
+                    <button className="settings__item" onClick={() => setActiveModal("name")}>
                         <i className="fa-solid fa-user-pen settings__item--icon"></i>
                         <span className="settings__item--text">Change your name</span>
                     </button>
 
-                    <button 
-                        className="settings__item"
-                        onClick={() => setActiveModal('email')}
-                    >
+                    <button className="settings__item" onClick={() => setActiveModal("email")}>
                         <i className="fa-solid fa-envelope settings__item--icon"></i>
                         <span className="settings__item--text">Change your gmail</span>
                     </button>
 
-                    <button 
-                        className="settings__item"
-                        onClick={() => setActiveModal('password')}
-                    >
+                    <button className="settings__item" onClick={() => setActiveModal("password")}>
                         <i className="fa-solid fa-lock settings__item--icon"></i>
                         <span className="settings__item--text">Change your password</span>
                     </button>
 
-                    <button 
-                        className="settings__item"
-                        onClick={() => setActiveModal('theme')}
-                    >
+                    <button className="settings__item" onClick={() => setActiveModal("theme")}>
                         <i className="fa-solid fa-palette settings__item--icon"></i>
                         <span className="settings__item--text">Change your theme</span>
                     </button>
