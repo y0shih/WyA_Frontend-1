@@ -1,0 +1,100 @@
+.editor--container {
+    padding: 16px;
+    height: 100%;
+    background: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+}
+
+.editor__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.editor__back--button {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: #333333;
+    font-size: 20px;
+}
+
+.editor__user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.editor__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.editor__username {
+    font-size: 16px;
+    color: #333333;
+}
+
+.editor__actions {
+    display: flex;
+    gap: 12px;
+}
+
+.editor__action--button {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.editor__action--cancel {
+    color: #dc3545;
+}
+
+.editor__action--save {
+    color: #28a745;
+}
+
+.editor__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.editor__topic {
+    border: none;
+    background: transparent;
+    font-size: 18px;
+    padding: 8px;
+    width: 100%;
+}
+
+.editor__note {
+    border: none;
+    background: transparent;
+    flex: 1;
+    font-size: 16px;
+    padding: 8px;
+    resize: none;
+}
+
+.editor__footer {
+    padding: 16px 0;
+    text-align: right;
+}
+
+.editor__last-update {
+    color: #6c757d;
+    font-size: 14px;
+}
+
+.editor__topic:focus,
+.editor__note:focus {
+    outline: none;
+}

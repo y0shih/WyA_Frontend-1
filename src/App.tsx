@@ -23,6 +23,7 @@ import AboutPage from './pages/about_page/about_page';
 import ContactPage from './pages/contact_page/contact_page';
 import ChattingPage from './pages/chatting_page/chatting_page';
 import ProfilePage from './pages/profile_page/profile_page';
+import NotesPage from './pages/notes_page/notes_page';
 setupIonicReact();
 
 const App: React.FC = () => (
@@ -33,6 +34,7 @@ const App: React.FC = () => (
         <Route exact path="/contact" component={ContactPage} />
         <Route exact path="/chatting" component={ChattingPage} />
         <Route exact path="/profile" component={ProfilePage} />
+        <Route exact path="/notes" component={NotesPage} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
