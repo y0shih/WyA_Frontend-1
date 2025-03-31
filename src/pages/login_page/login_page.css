@@ -1,0 +1,136 @@
+.loginPage {
+    height: 100%;
+    width: 100%;
+    background-color: #1E2D40;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginPage__loginForm {
+    height: fit-content;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.loginPage__element {
+    height: fit-content;
+    flex: 1;
+}
+
+.loginPage__element--headerBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+
+    .loginPage__header--icon {
+        height: 36px;
+        width: 36px;
+    }
+
+    .loginPage__header--content {
+        height: fit-content;
+        width: fit-content;
+        color: white;
+        margin: 0 !important;
+    }
+}
+
+.loginPage__element--inputForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .loginPage__inputContainer {
+        flex: 1;
+        height: fit-content;
+    }
+    
+    i {
+        font-size: 20px;
+        width: auto;
+        color: white;
+    }
+    
+    .loginPage__inputBox {
+        height: fit-content;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        border-bottom: 1px solid white;
+        margin-bottom: 10px;
+
+        .loginPage__input {
+            outline: none;
+            flex: 1;
+            height: 50px;
+            color: white;
+            font-size: 14px;
+            background-color: transparent;
+            border: none;
+        }
+    }
+}
+
+.fa-eye {
+    font-size: 16px !important;
+    color: #808080 !important;
+}
+
+.loginPage__announce {
+    color: #BD1B23;
+    font-size: 12px;
+}
+
+.loginPage__forgotPasswordBox {
+    height: fit-content;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+
+    a {
+        text-decoration: none;
+        color: #808080;
+        font-size: 12px;
+        font-style: italic;
+    }
+}
+
+.loginPage__element--btnForm {
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .btnForm--btn {
+        height: 50px;
+        flex: 1;
+        font-size: 16px;
+        background-color: #172737;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 2px rgba(128, 128, 128, 0.25);
+    }
+}
+
+.loginPage__element--signupAccount {
+    height: fit-content;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    a {
+        text-decoration: none;
+        color: #808080;
+        font-size: 12px;
+        font-style: italic;
+    }
+}
