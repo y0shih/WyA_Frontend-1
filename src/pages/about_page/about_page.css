@@ -1,0 +1,138 @@
+:root {
+  --primary-color: #ECF3FB;
+  --secondary-color: #ffffff;
+}
+
+
+.dashboard {
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-color);
+}
+
+.profile--container {
+    background-color: var(--primary-color);
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+.dashboard--container {
+    background-color: var(--primary-color);
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+.dashboard__header {
+  margin-bottom: 30px;
+}
+
+.dashboard__profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: var(--primary-color);
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(128,128,128,0.25);
+  height: 80px;
+}
+
+.dashboard__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.dashboard__user--info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard__username {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+.dashboard__email {
+  font-size: 14px;
+  color: #666;
+}
+
+.dashboard__menu--button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  color: #333;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.dashboard__title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.dashboard__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: auto;
+}
+
+.dashboard__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(128,128,128,0.25);
+  cursor: pointer;
+  transition: transform 0.2s;
+  height: 150px;
+  width: 150px;
+}
+
+/* .dashboard__item:hover {
+  transform: scale(1.02);
+} */
+
+.dashboard__item--icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 12px;
+}
+
+.dashboard__item--label {
+  font-size: 20px;
+  color: #333;
+  font-weight: 500;
+}
+
+.dashboard__signout--button {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: #dc3545;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+}
+
+.dashboard__signout--button:hover {
+  background-color: #ffebee;
+}
+
+
