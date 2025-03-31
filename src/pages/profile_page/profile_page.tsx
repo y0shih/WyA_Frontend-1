@@ -1,6 +1,6 @@
 // Import library
 import { IonPage } from "@ionic/react";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 // Import components
 
@@ -12,6 +12,7 @@ const ProfilePage: React.FC = () => {
     const [isNameModalOpen, setIsNameModalOpen] = useState(false);
     const [newName, setNewName] = useState("");
     const [newPassword, setNewPassword] = useState("");
+    const modalRef = useRef<HTMLDivElement>(null);
 
     const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setNewName(e.target.value);
@@ -21,8 +22,28 @@ const ProfilePage: React.FC = () => {
         setNewPassword(e.target.value);
     };
 
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+            if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+                setIsNameModalOpen(false);
+                setNewName("");
+                setNewPassword("");
+            }
+        };
+        // Add event listeners when the modal is open support both mouse and touch events
+        if (isNameModalOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+            document.addEventListener('touchstart', handleClickOutside);
+        }
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('touchstart', handleClickOutside);
+        };
+    }, [isNameModalOpen]);
+
     const handleSubmit = () => {
-        // Handle both name and password change logic here
+        // Handle both name and password change logic here :)
         console.log("New name:", newName);
         console.log("New password:", newPassword);
         
@@ -75,7 +96,7 @@ const ProfilePage: React.FC = () => {
                 {/* Name Change Modal */}
                 {isNameModalOpen && (
                     <div className="modal">
-                        <div className="modal__content">
+                        <div className="modal__content" ref={modalRef}>
                             <div className="modal__input-group">
                                 <i className="fa-solid fa-user-pen modal__icon"></i>
                                 <input
