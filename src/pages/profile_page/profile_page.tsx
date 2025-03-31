@@ -10,13 +10,12 @@ import "../../main.css"
 
 const ProfilePage: React.FC = () => {
     // Modal states
-    const [activeModal, setActiveModal] = useState<'name' | 'email' | 'password' | 'theme' | 'delete' | null>(null);
+    const [activeModal, setActiveModal] = useState<'name' | 'email' | 'password' | 'delete' | null>(null);
     
     // Input states
     const [newName, setNewName] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [newEmail, setNewEmail] = useState("");
-    const [selectedTheme, setSelectedTheme] = useState("light");
     
     const modalRef = useRef<HTMLDivElement>(null);
 
@@ -31,10 +30,6 @@ const ProfilePage: React.FC = () => {
 
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setNewEmail(e.target.value);
-    };
-
-    const handleThemeChange = (theme: string) => {
-        setSelectedTheme(theme);
     };
 
     useEffect(() => {
@@ -74,9 +69,6 @@ const ProfilePage: React.FC = () => {
                 break;
             case 'password':
                 console.log("New password:", newPassword);
-                break;
-            case 'theme':
-                console.log("New theme:", selectedTheme);
                 break;
             case 'delete':
                 console.log("Account deletion confirmed");
@@ -172,26 +164,6 @@ const ProfilePage: React.FC = () => {
                         </div>
                     </>
                 );
-            case 'theme':
-                return (
-                    <div className="modal__theme-options">
-                        <button 
-                            className={`modal__theme-button ${selectedTheme === 'light' ? 'modal__theme-button--active' : ''}`}
-                            onClick={() => handleThemeChange('light')}
-                        >
-                            <i className="fa-solid fa-sun modal__icon"></i>
-                            Light
-                        </button>
-
-                        <button 
-                            className={`modal__theme-button ${selectedTheme === 'dark' ? 'modal__theme-button--active' : ''}`}
-                            onClick={() => handleThemeChange('dark')}
-                        >
-                            <i className="fa-solid fa-moon modal__icon"></i>
-                            Dark
-                        </button>
-                    </div>
-                );
             case 'delete':
                 return (
                     <div className="modal__delete">
@@ -204,13 +176,14 @@ const ProfilePage: React.FC = () => {
                             />
                         </div>
                         <div className="modal__actions">
+
                             <button 
                                 className="modal__button modal__button--cancel"
                                 onClick={closeModal}
                             >
                                 Cancel
                             </button>
-
+                            
                             <button 
                                 className="modal__button modal__button--delete"
                                 onClick={handleSubmit}
@@ -251,7 +224,7 @@ const ProfilePage: React.FC = () => {
                         <span className="settings__item--text">Change your password</span>
                     </button>
 
-                    <button className="settings__item" onClick={() => setActiveModal("theme")}>
+                    <button className="settings__item">
                         <i className="fa-solid fa-palette settings__item--icon"></i>
                         <span className="settings__item--text">Change your theme</span>
                     </button>
