@@ -19,11 +19,11 @@ import '@ionic/react/css/display.css';
 setupIonicReact();
 
 // Import components
-
+import StarterPage from './pages/starter_page/starter_page';
 
 const App: React.FC = () => (
   <IonApp>
-
+    <StarterPage />
   </IonApp>
 );
 
