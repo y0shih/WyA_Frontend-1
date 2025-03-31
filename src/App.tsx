@@ -22,7 +22,7 @@ import '@ionic/react/css/display.css';
 import AboutPage from './pages/about_page/about_page';
 import ContactPage from './pages/contact_page/contact_page';
 import ChattingPage from './pages/chatting_page/chatting_page';
-
+import ProfilePage from './pages/profile_page/profile_page';
 setupIonicReact();
 
 const App: React.FC = () => (
@@ -32,6 +32,7 @@ const App: React.FC = () => (
         <Route exact path="/dashboard" component={AboutPage} />
         <Route exact path="/contact" component={ContactPage} />
         <Route exact path="/chatting" component={ChattingPage} />
+        <Route exact path="/profile" component={ProfilePage} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
