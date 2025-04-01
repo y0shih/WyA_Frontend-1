@@ -10,54 +10,62 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 24px;
+    background: #3E3F46;
+    border-radius: 20px;
+    padding: 8px 24px;
 }
 
-.editor__back--button {
-    background: none;
-    border: none;
-    padding: 8px;
-    cursor: pointer;
-    color: #333333;
-    font-size: 20px;
+.editor__header-info {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px 4px;
+    margin-bottom: 16px;
 }
 
-.editor__user-info {
+.editor__profile {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 12px;
+    margin-left: 12px;
 }
 
 .editor__avatar {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
+    border: 2px solid #fff;
 }
 
 .editor__username {
-    font-size: 16px;
-    color: #333333;
+    font-size: 12px;
+    color: #ffffff;
+    font-weight: 500;
 }
 
 .editor__actions {
     display: flex;
-    gap: 12px;
+    align-items: center;
+    gap: 5px;
+    margin-right: 14px;
 }
 
 .editor__action--button {
     background: none;
     border: none;
-    padding: 8px;
+    padding: 6px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .editor__action--cancel {
-    color: #dc3545;
+    color: #FF0000;
 }
 
 .editor__action--save {
-    color: #28a745;
+    color: #00FF00;
 }
 
 .editor__content {
@@ -73,23 +81,22 @@
     font-size: 18px;
     padding: 8px;
     width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.25);
 }
 
 .editor__note {
     border: none;
     background: transparent;
     flex: 1;
-    font-size: 16px;
+    font-size: 18px;
     padding: 8px;
     resize: none;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.25);
 }
 
-.editor__footer {
-    padding: 16px 0;
-    text-align: right;
-}
-
-.editor__last-update {
+.editor__last--update {
     color: #6c757d;
     font-size: 14px;
 }
@@ -97,4 +104,22 @@
 .editor__topic:focus,
 .editor__note:focus {
     outline: none;
+}
+
+.editor__last--update {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #3E3F46;
+    font-size: 14px;
+}
+
+.editor__last--update-label {
+    font-weight: bold;
+    font-size: 10px;    
+}
+
+.editor__last--update-time {
+    color: #808080;
+    font-size: 10px;
 }

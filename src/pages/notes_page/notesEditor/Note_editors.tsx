@@ -20,10 +20,7 @@ const NoteEditor: React.FC<NoteEditorProps> = ({ onBack }) => {
       <IonContent>
         <div className="editor--container">
           <div className="editor__header">
-            <button className="editor__back--button" onClick={onBack}>
-              <i className="fa-solid fa-caret-left"></i>
-            </button>
-            <div className="editor__user-info">
+            <div className="editor__profile">
               <img 
                 src="/assets/profile-pic.png" 
                 alt="Profile" 
@@ -41,6 +38,13 @@ const NoteEditor: React.FC<NoteEditorProps> = ({ onBack }) => {
               </button>
             </div>
           </div>
+          
+          <div className="editor__header-info">
+            <div className="editor__last--update">
+              <span className="editor__last--update-label">Last update:</span>
+              <span className="editor__last--update-time">27 THG 03, 2025</span>
+            </div>
+          </div>
 
           <div className="editor__content">
             <input 
@@ -52,10 +56,6 @@ const NoteEditor: React.FC<NoteEditorProps> = ({ onBack }) => {
               className="editor__note" 
               placeholder="Write your note right here..."
             ></textarea>
-          </div>
-
-          <div className="editor__footer">
-            <span className="editor__last-update">Last update: 27 THG 03, 2025</span>
           </div>
         </div>
       </IonContent>
