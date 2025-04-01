@@ -78,7 +78,7 @@
 .editor__topic {
     border: none;
     background: transparent;
-    font-size: 18px;
+    font-size: 16px;
     padding: 8px;
     width: 100%;
     border-radius: 20px;
@@ -89,7 +89,8 @@
     border: none;
     background: transparent;
     flex: 1;
-    font-size: 18px;
+    font-size: 16px;
+    text-align: left;
     padding: 8px;
     resize: none;
     border-radius: 20px;
