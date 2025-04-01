@@ -20,7 +20,7 @@ export default function LoginPage() {
             <div className="loginPage">
                 <div className="loginPage__loginForm">
                     <div className="loginPage__element loginPage__element--headerBox">
-                        <img className="loginPage__header--icon" src="public/assets/logo.png" alt="Logo" />
+                        <img className="loginPage__header--icon" src= "src/assets/logo.png" alt="Logo" />
                         <h1 className="loginPage__header--content">Welcome to WyA</h1>
                     </div>
     
