@@ -13,10 +13,6 @@ import "../../main.css"
 //image error handler
 const NotesPage: React.FC = () => {
   const [isEditorOpen, setIsEditorOpen] = useState(false);
-  
-  const handleImageError = (event: React.SyntheticEvent<HTMLImageElement>) => {
-    event.currentTarget.src = "/assets/error.jpg";
-  };
 
   const handleNoteClick = () => {
     setIsEditorOpen(true);
@@ -50,7 +46,6 @@ const NotesPage: React.FC = () => {
                 src="src/assets/note_icon.png" 
                 alt="Note" 
                 className="notes__item--icon"
-                onError={handleImageError}
               />
               <span className="notes__item--label">Note Name</span>
             </div>
@@ -60,7 +55,6 @@ const NotesPage: React.FC = () => {
                 src="src/assets/note_icon.png" 
                 alt="Note" 
                 className="notes__item--icon"
-                onError={handleImageError}
               />
               <span className="notes__item--label">Note Name</span>
             </div>
@@ -70,7 +64,6 @@ const NotesPage: React.FC = () => {
                 src="src/assets/note_icon.png" 
                 alt="Note" 
                 className="notes__item--icon"
-                onError={handleImageError}
               />
               <span className="notes__item--label">Note Name</span>
             </div>
@@ -80,7 +73,6 @@ const NotesPage: React.FC = () => {
                 src="src/assets/note_icon.png" 
                 alt="Note" 
                 className="notes__item--icon"
-                onError={handleImageError}
               />
               <span className="notes__item--label">Note Name</span>
             </div>
@@ -90,7 +82,6 @@ const NotesPage: React.FC = () => {
                 src="src/assets/note_icon.png" 
                 alt="Note" 
                 className="notes__item--icon"
-                onError={handleImageError}
               />
               <span className="notes__item--label">Note Name</span>
             </div>
@@ -100,7 +91,6 @@ const NotesPage: React.FC = () => {
                 src="src/assets/note_icon.png" 
                 alt="Note" 
                 className="notes__item--icon"
-                onError={handleImageError}
               />
               <span className="notes__item--label">Note Name</span>
             </div>

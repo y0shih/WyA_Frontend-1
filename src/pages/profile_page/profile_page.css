@@ -62,8 +62,7 @@
 
 .settings__item--text {
     color: #808080;
-    font-size: 17px;
-    font-weight: 400; 
+    font-size: 14px;
 }
 
 .settings__item--delete {
@@ -71,15 +70,14 @@
     border-bottom: none;
     padding: 16px;
     text-align:center;
-    font-size: 17px;
+    font-size: 14px;
     display: flex;
     justify-content: center;
 }
 
 .settings__item--textdelete {
     color: #BD1B23; 
-    font-size: 17px;
-    font-weight: 400;
+    font-size: 14px;
 }
 
 .settings__item--delete .settings__item--icon {

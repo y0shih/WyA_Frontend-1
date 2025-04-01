@@ -11,10 +11,6 @@ interface NoteEditorProps {
 }
 
 const NoteEditor: React.FC<NoteEditorProps> = ({ onBack }) => {
-  const handleImageError = (event: React.SyntheticEvent<HTMLImageElement>) => {
-    event.currentTarget.src = "/assets/error.jpg";
-  };
-
   return (
     <IonPage>
       <IonContent>
@@ -25,7 +21,6 @@ const NoteEditor: React.FC<NoteEditorProps> = ({ onBack }) => {
                 src="/assets/profile-pic.png" 
                 alt="Profile" 
                 className="editor__avatar"
-                onError={handleImageError}
               />
               <span className="editor__username">Mỹ Uyên</span>
             </div>
