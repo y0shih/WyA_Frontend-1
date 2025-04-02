@@ -19,11 +19,11 @@ import '@ionic/react/css/display.css';
 setupIonicReact();
 
 // Import components
-import RegisterPage from './pages/register_page/register_page';
+
 
 const App: React.FC = () => (
   <IonApp>
-    <RegisterPage />
+
   </IonApp>
 );
 
