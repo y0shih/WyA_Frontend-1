@@ -3,32 +3,39 @@ import { IonPage } from "@ionic/react";
 import React, { useState, useRef, useEffect } from "react";
 
 // Import components
-
+import Chatbox from "./Chatbox/chatting_Chatbox";
 // Import css
 import "./chatting_page.css"
 import "../../main.css"
 
-interface User {
-  id: string;
-  name: string;
-  avatar: string;
-}
-
-interface FriendRequest extends User {
-  status: "accepted" | "declined";
-}
-
-interface Friend extends User {
-  lastMessage: string;
-  lastMessageTime: string;
-}
-
-
-//Sample data :) 
+/**
+ * Main chat page component that handles friends list and chat interface
+ */
 const ChattingPage: React.FC = () => {
+  // State for managing chat navigation and UI
+  const [isChatboxOpen, setIsChatboxOpen] = useState(false);
+  const [selectedFriend, setSelectedFriend] = useState<Friend | null>(null);
   const [isSearchActive, setIsSearchActive] = useState(false);
   const searchPopupRef = useRef<HTMLDivElement>(null);
-  const [friendRequests, setFriendRequests] = React.useState<FriendRequest[]>([
+
+  // Type definitions for user data
+  interface User {
+    id: string;
+    name: string;
+    avatar: string;
+  }
+
+  interface FriendRequest extends User {
+    status: "accepted" | "declined";
+  }
+
+  interface Friend extends User {
+    lastMessage: string;
+    lastMessageTime: string;
+  }
+
+  // Sample data for friend requests
+  const [friendRequests] = React.useState<FriendRequest[]>([
     {
       id: 'req_1',
       name: 'Yeezy',
@@ -43,7 +50,8 @@ const ChattingPage: React.FC = () => {
     }
   ]);
 
-  const [friends, setFriends] = React.useState<Friend[]>([
+  // Sample data for friends list
+  const [friends] = React.useState<Friend[]>([
     {
       id: 'friend_1',
       name: 'Playboi Carti',
@@ -60,39 +68,65 @@ const ChattingPage: React.FC = () => {
     }
   ]);
 
+  // Combine friends and requests for search functionality
   const allUsers = [...friends, ...friendRequests].map(user => ({
     id: user.id,
     name: user.name,
     avatar: user.avatar
   }));
 
-  const handleRequestAction = (requestId: string, action: 'accept' | 'decline') => {
-    setFriendRequests(prev => prev.map(request => 
-      request.id === requestId 
-        ? { ...request, status: action === 'accept' ? 'accepted' : 'declined' }
-        : request
-    ));
+  /**
+   * Handles friend request actions (accept/decline)
+   * @param requestId - ID of the friend request
+   * @param action - 'accept' or 'decline'
+   */
+  // Not implemented yet
+  // const handleRequestAction = (requestId: string, action: 'accept' | 'decline') => {
+  //   // Update request status
+  //   setFriendRequests(prev => prev.map(request => 
+  //     request.id === requestId 
+  //       ? { ...request, status: action === 'accept' ? 'accepted' : 'declined' }
+  //       : request
+  //   ));
 
-    if (action === 'accept') {
-      const acceptedRequest = friendRequests.find(req => req.id === requestId);
-      if (acceptedRequest) {
-        setFriends(prev => [...prev, {
-          id: acceptedRequest.id,
-          name: acceptedRequest.name,
-          avatar: acceptedRequest.avatar,
-          lastMessage: 'New friend added!',
-          lastMessageTime: new Date().toLocaleTimeString()
-        }]);
-      }
-    }
-  };
+  //   // If accepted, add to friends list
+  //   if (action === 'accept') {
+  //     const acceptedRequest = friendRequests.find(req => req.id === requestId);
+  //     if (acceptedRequest) {
+  //       setFriends(prev => [...prev, {
+  //         id: acceptedRequest.id,
+  //         name: acceptedRequest.name,
+  //         avatar: acceptedRequest.avatar,
+  //         lastMessage: 'New friend added!',
+  //         lastMessageTime: new Date().toLocaleTimeString()
+  //       }]);
+  //     }
+  //   }
+  // };
 
+  /**
+   * Handles search popup activation
+   */
   const handleSearchClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsSearchActive(true);
     console.log("Search clicked, isSearchActive:", isSearchActive);
   };
 
+  /**
+   * Opens chat with selected friend
+   */
+  const handleChatboxClick = (friend: Friend) => {
+    setSelectedFriend(friend);
+    setIsChatboxOpen(true);
+  };
+
+  const handleBackClick = () => {
+    setIsChatboxOpen(false);
+    setSelectedFriend(null);
+  };
+
+  // Close search popup when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
       if (searchPopupRef.current && !searchPopupRef.current.contains(event.target as Node)) {
@@ -111,9 +145,16 @@ const ChattingPage: React.FC = () => {
     };
   }, [isSearchActive]);
 
+  // Render chat interface if a friend is selected
+  if (isChatboxOpen && selectedFriend) {
+    return <Chatbox onBack={handleBackClick} friend={selectedFriend} />;
+  }
+
+  // Main render for friends list view
   return (
     <IonPage>
       <div className="chat">
+        {/* Header with search and profile */}
         <div className="chat__header">
           <div className="chat__search">
             <button className="chat__button--back">
@@ -132,10 +173,11 @@ const ChattingPage: React.FC = () => {
             </div>
 
             <div className="chat__avatar--profile">
-              <img src="/path-to-your-avatar.png" alt="" />
+              <img src="/avatar.png" alt="" />
             </div>
           </div>
           
+          {/* Search popup */}
           {isSearchActive && (
             <div className="chat__search--popup" ref={searchPopupRef}>
               {allUsers.map(user => (
@@ -170,21 +212,18 @@ const ChattingPage: React.FC = () => {
                       <span className="chat__name--user">{request.name}</span>
                     </div>
                     <div className="chat__actions">
-
                       <button 
                         className="chat__button--decline"
-                        onClick={() => handleRequestAction(request.id, 'decline')}
+                        // onClick={() => handleRequestAction(request.id, 'decline')}
                       >
                         <i className="fa-solid fa-xmark"></i>
                       </button>
-
                       <button 
                         className="chat__button--accept"
-                        onClick={() => handleRequestAction(request.id, 'accept')}
+                        // onClick={() => handleRequestAction(request.id, 'accept')}
                       >
                         <i className="fa-solid fa-check"></i>
                       </button>
-
                     </div>
                   </div>
                 ))}
@@ -197,7 +236,12 @@ const ChattingPage: React.FC = () => {
             <h2 className="chat__title--section">Friends ({friends.length})</h2>
             <div className="chat__container">
               {friends.map(friend => (
-                <div key={friend.id} className="chat__item--friend">
+                <div 
+                  key={friend.id} 
+                  className="chat__item--friend"
+                  onClick={() => handleChatboxClick(friend)}
+                  style={{ cursor: 'pointer' }}
+                >
                   <div className="chat__user">
                     <div className="chat__avatar--user">
                       <img src={friend.avatar} alt={friend.name} />

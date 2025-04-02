@@ -9,8 +9,6 @@ import NoteEditor from "./notesEditor/Note_editors";
 import "./notes_page.css"
 import "../../main.css"
 
-
-//image error handler
 const NotesPage: React.FC = () => {
   const [isEditorOpen, setIsEditorOpen] = useState(false);
 
