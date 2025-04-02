@@ -93,7 +93,9 @@ const Chatbox: React.FC<ChatboxProps> = ({
           </div>
           <div className="chatbox__user--info">
             <span className="chatbox__username">{friend.name}</span>
-            <span className="chatbox__user--status"></span>
+            <span className="chatbox__user--status">
+              <i className="fa-solid fa-circle"></i>
+            </span>
           </div>
         </div>
       </div>

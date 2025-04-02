@@ -68,11 +68,16 @@
 }
 
 .chatbox__user--status {
-  width: 10px;
-  height: 10px;
-  background-color: #00FF00;
-  border-radius: 50%;
-  margin-left: 130px;
+  width: 60%;
+  color: #00FF00;
+  font-size: 8px;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+}
+
+.chatbox__user--status i {
+  display: inline-block;
 }
 
 .chatbox__messages {
