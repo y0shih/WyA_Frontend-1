@@ -109,15 +109,16 @@
 }
 
 .chatbox__bubble--received {
-  background-color: #3E3F46;
-  color: var(--text-color);
+  background-color: #ffffff;
+  color: #000000;
   border-radius: 10px;
+  border: 1px solid #808080;
   font-size: 14px;
 }
 
 .chatbox__bubble--sent {
-  background-color: #FFFFFF;
-  color: #000000;
+  background-color: #3E3F46;
+  color: #ffffff;
   border-radius: 10px;
   border: 1px solid #808080;
   font-size: 14px;
