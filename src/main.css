@@ -25,3 +25,15 @@ html, body {
     background-color: white;
     color: black;
 }
+
+p {
+    user-select: none;
+}
+
+img {
+    user-select: none;
+}
+
+.noSelect {
+    user-select: none;
+}
