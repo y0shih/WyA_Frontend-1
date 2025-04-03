@@ -20,10 +20,9 @@ setupIonicReact();
 
 // Import components
 
-
 const App: React.FC = () => (
   <IonApp>
-
+    
   </IonApp>
 );
 
