@@ -3,7 +3,7 @@ import { IonPage } from "@ionic/react";
 import React, { useState, useRef, useEffect } from "react";
 
 // Import components
-
+import Chatbox from "./Chatbox/chatting_Chatbox";
 // Import css
 import "./chatting_page.css"
 import "../../main.css"
@@ -51,6 +51,7 @@ const ChattingPage: React.FC = () => {
   return (
     <IonPage>
       <div className="chat">
+        {/* Header with search and profile */}
         <div className="chat__header">
           <div className="chat__header__container">
             <div className={`chat__search ${!isSearchActive ? "allBorder" : ""}`}>

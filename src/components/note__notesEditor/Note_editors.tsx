@@ -11,10 +11,6 @@ interface NoteEditorProps {
 }
 
 const NoteEditor: React.FC<NoteEditorProps> = ({ onBack }) => {
-  const handleImageError = (event: React.SyntheticEvent<HTMLImageElement>) => {
-    event.currentTarget.src = "/assets/error.jpg";
-  };
-
   return (
     <IonPage>
       <IonContent>
@@ -37,6 +33,13 @@ const NoteEditor: React.FC<NoteEditorProps> = ({ onBack }) => {
               <button className="editor__action--button editor__action--save">
                 <i className="fa-solid fa-check"></i>
               </button>
+            </div>
+          </div>
+          
+          <div className="editor__header-info">
+            <div className="editor__last--update">
+              <span className="editor__last--update-label">Last update:</span>
+              <span className="editor__last--update-time">27 THG 03, 2025</span>
             </div>
           </div>
 

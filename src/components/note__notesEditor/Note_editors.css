@@ -30,6 +30,7 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
+    border: 2px solid #fff;
 }
 
 .editor__user--username {
@@ -39,7 +40,9 @@
 
 .editor__actions {
     display: flex;
-    gap: 12px;
+    align-items: center;
+    gap: 5px;
+    margin-right: 14px;
 }
 
 .editor__action--button {
@@ -50,11 +53,11 @@
 }
 
 .editor__action--cancel {
-    color: #dc3545;
+    color: #FF0000;
 }
 
 .editor__action--save {
-    color: #28a745;
+    color: #00FF00;
 }
 
 .editor__content {
@@ -107,4 +110,22 @@
 .editor__topic:focus,
 .editor__note:focus {
     outline: none;
+}
+
+.editor__last--update {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #3E3F46;
+    font-size: 14px;
+}
+
+.editor__last--update-label {
+    font-weight: bold;
+    font-size: 10px;    
+}
+
+.editor__last--update-time {
+    color: #808080;
+    font-size: 10px;
 }
