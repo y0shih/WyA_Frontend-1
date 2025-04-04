@@ -1,9 +1,5 @@
-.notes {
-    --background: var(--ion-color-light);
-}
-
 .notes__header {
-    --background: var(--ion-color-light);
+    background-color: white;
     margin-bottom: 24px;
     display: flex;
     align-items: center;
@@ -62,7 +58,7 @@
     position: relative;
     padding: 16px;
     height: 100%;
-    background: #f8f9fa;
+    background: white;
 }
 
 .notes__header--title {

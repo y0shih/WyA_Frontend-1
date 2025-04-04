@@ -169,27 +169,13 @@ const ProfilePage: React.FC = () => {
                     <div className="modal__delete">
                         <h2 className="modal__title">YOUR DECISION</h2>
                         <div className="modal__verify-code">
-                            <input
-                                type="text"
-                                placeholder="Verify code"
-                                className="modal__input modal__input--verify"
-                            />
+                            <input type="text" placeholder="Verify code" className="modal__input modal__input--verify"/>
                         </div>
-                        <div className="modal__actions">
 
-                            <button 
-                                className="modal__button modal__button--cancel"
-                                onClick={closeModal}
-                            >
-                                Cancel
-                            </button>
+                        <div className="modal__actions">
+                            <button className="modal__button modal__button--sendCode" onClick={closeModal}>Send code</button>
                             
-                            <button 
-                                className="modal__button modal__button--delete"
-                                onClick={handleSubmit}
-                            >
-                                Delete
-                            </button>
+                            <button className="modal__button modal__button--delete" onClick={handleSubmit}>Delete</button>
                         </div>
                     </div>
                 );
@@ -208,33 +194,30 @@ const ProfilePage: React.FC = () => {
                     </button>
                 </div>
 
-                <div className="settings__content">
+                <div className="settings__funcs">
                     <button className="settings__item" onClick={() => setActiveModal("name")}>
                         <i className="fa-solid fa-user-pen settings__item--icon"></i>
-                        <span className="settings__item--text">Change your name</span>
+                        <p className="settings__item--text">Change your name</p>
                     </button>
 
                     <button className="settings__item" onClick={() => setActiveModal("email")}>
                         <i className="fa-solid fa-envelope settings__item--icon"></i>
-                        <span className="settings__item--text">Change your gmail</span>
+                        <p className="settings__item--text">Change your gmail</p>
                     </button>
 
                     <button className="settings__item" onClick={() => setActiveModal("password")}>
                         <i className="fa-solid fa-lock settings__item--icon"></i>
-                        <span className="settings__item--text">Change your password</span>
+                        <p className="settings__item--text">Change your password</p>
                     </button>
 
                     <button className="settings__item">
                         <i className="fa-solid fa-palette settings__item--icon"></i>
-                        <span className="settings__item--text">Change your theme</span>
+                        <p className="settings__item--text">Change your theme</p>
                     </button>
 
-                    <button 
-                        className="settings__item settings__item--delete"
-                        onClick={() => setActiveModal('delete')}
-                    >
+                    <button className="settings__item settings__item--delete" onClick={() => setActiveModal('delete')}>
                         <i className="fa-solid fa-trash settings__item--icon"></i>
-                        <span className="settings__item-text settings__item--textdelete">Delete the account</span>
+                        <p className="settings__item--text settings__item--textdelete">Delete the account</p>
                     </button>
                 </div>
 
@@ -245,12 +228,7 @@ const ProfilePage: React.FC = () => {
                             {renderModalContent()}
                             {/* Show Apply button only for non-delete modals */}
                             {activeModal !== 'delete' && (
-                                <button 
-                                    className="modal__button"
-                                    onClick={handleSubmit}
-                                >
-                                    Apply
-                                </button>
+                                <button className="modal__button" onClick={handleSubmit}>Apply</button>
                             )}
                         </div>
                     </div>

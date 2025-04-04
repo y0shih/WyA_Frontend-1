@@ -1,9 +1,9 @@
 .editor__container {
-    padding: 20px;
     height: 100%;
-    background: #f8f9fa;
+    padding: 20px;
     display: flex;
     flex-direction: column;
+    background: #ffffff;
 }
 
 .editor__header {
@@ -15,8 +15,8 @@
     color: #333333;
     font-size: 20px;
     background: none;
-    border: none;
     padding: 10px;
+    border: none;
 }
 
 .editor__user--info {
@@ -43,11 +43,10 @@
 }
 
 .editor__action--button {
-    background: none;
-    border: none;
-    padding: 8px;
-    cursor: pointer;
     font-size: 20px;
+    background: none;
+    padding: 8px;
+    border: none;
 }
 
 .editor__action--cancel {

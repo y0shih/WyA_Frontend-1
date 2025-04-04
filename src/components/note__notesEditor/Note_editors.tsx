@@ -25,7 +25,7 @@ const NoteEditor: React.FC<NoteEditorProps> = ({ onBack }) => {
             </button>
 
             <div className="editor__user--info">
-              <img src="/assets/profile-pic.png" alt="Profile" className="editor__user--avatar"/>
+              <img src="https://chiemtaimobile.vn/images/companies/1/%E1%BA%A2nh%20Blog/avatar-facebook-dep/Anh-avatar-hoat-hinh-de-thuong-xinh-xan.jpg?1704788263223" alt="Profile" className="editor__user--avatar"/>
               <span className="editor__user--username">Mỹ Uyên</span>
             </div>
 

@@ -8,33 +8,17 @@ import React, { useState, useRef, useEffect } from "react";
 import "./chatting_page.css"
 import "../../main.css"
 
-interface User {
-  id: string;
-  name: string;
-  avatar: string;
-}
-
-interface FriendRequest extends User {
-  status: "accepted" | "declined";
-}
-
-interface Friend extends User {
-  lastMessage: string;
-  lastMessageTime: string;
-}
-
 
 //Sample data :) 
 const ChattingPage: React.FC = () => {
+  // State
   const [isSearchActive, setIsSearchActive] = useState(false);
   const searchPopupRef = useRef<HTMLDivElement>(null);
 
-  const handleSearchClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setIsSearchActive(true);
-    console.log("Search clicked, isSearchActive:", isSearchActive);
-  };
+  // Data
+  const [search, setSearch] = useState<string>("")
 
+  // Handler Effects
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent | TouchEvent) => {
       if (searchPopupRef.current && !searchPopupRef.current.contains(event.target as Node)) {
@@ -47,45 +31,58 @@ const ChattingPage: React.FC = () => {
       document.addEventListener('touchstart', handleClickOutside);
     }
 
+    console.log(searchPopupRef)
+    console.log(isSearchActive)
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('touchstart', handleClickOutside);
     };
+
   }, [isSearchActive]);
 
+  // Handler functions
+  const handleSearchClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setIsSearchActive(true);
+    console.log("Search clicked, isSearchActive:", isSearchActive);
+  };
+  
   return (
     <IonPage>
       <div className="chat">
         <div className="chat__header">
-          <div className={`chat__search ${!isSearchActive ? "allBorder" : ""}`}>
-            <button className="chat__button--back">
-              <i className="fa-solid fa-caret-left chat__icon--back"></i>
-            </button>
+          <div className="chat__header__container">
+            <div className={`chat__search ${!isSearchActive ? "allBorder" : ""}`}>
+              <button className="chat__button--back">
+                <i className="fa-solid fa-caret-left chat__icon--back"></i>
+              </button>
 
-            <div className="chat__input--search" onClick={handleSearchClick}>
-              <input type="text" placeholder="Find your friend..." onClick={handleSearchClick} />
-            </div>
+              <div className="chat__input--search">
+                <input type="text" placeholder="Find your friend..." onClick={handleSearchClick} onChange={(e) => setSearch(e.target.value)} value={search} />
+              </div>
 
-            <div className="chat__avatar--profile">
-              <img src="https://chiemtaimobile.vn/images/companies/1/%E1%BA%A2nh%20Blog/avatar-facebook-dep/Anh-avatar-hoat-hinh-de-thuong-xinh-xan.jpg?1704788263223" alt="Avatar User" />
-            </div>
-          </div>
-
-          {isSearchActive && (
-            <div className="chat__search--popup" ref={searchPopupRef}>
-              <div className="chat__search--item">
-                <div className="chat__search--user">
-                  <div className="chat__avatar--user">
-                    <img src="https://chiemtaimobile.vn/images/companies/1/%E1%BA%A2nh%20Blog/avatar-facebook-dep/Anh-avatar-hoat-hinh-de-thuong-xinh-xan.jpg?1704788263223" alt="Avatar User" />
-                  </div>
-
-                  <p className="chat__name--usersearch">Username</p>
-                </div>
-
-                <button className="chat__button--request">Request</button>
+              <div className="chat__avatar--profile">
+                <img src="https://chiemtaimobile.vn/images/companies/1/%E1%BA%A2nh%20Blog/avatar-facebook-dep/Anh-avatar-hoat-hinh-de-thuong-xinh-xan.jpg?1704788263223" alt="Avatar User" />
               </div>
             </div>
-          )}
+
+            {isSearchActive && (
+              <div className="chat__search--popup" ref={searchPopupRef}>
+                <div className="chat__search--item">
+                  <div className="chat__search--user">
+                    <div className="chat__search--userAvartar">
+                      <img src="https://chiemtaimobile.vn/images/companies/1/%E1%BA%A2nh%20Blog/avatar-facebook-dep/Anh-avatar-hoat-hinh-de-thuong-xinh-xan.jpg?1704788263223" alt="Avatar User" />
+                    </div>
+
+                    <p className="chat__name--usersearch">Username</p>
+                  </div>
+
+                  <button className="chat__button--request">Request</button>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
 
         <div className="chat__content">
