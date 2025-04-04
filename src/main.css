@@ -23,8 +23,8 @@ html, body {
     color: black;
 }
 
-button:hover {
-    cursor: pointer;
+p {
+    user-select: none;
 }
 
 img {

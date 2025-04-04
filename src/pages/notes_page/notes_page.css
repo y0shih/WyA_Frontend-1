@@ -1,0 +1,134 @@
+.notes__header {
+    background-color: white;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.notes__content {
+    --background: var(--ion-color-light);
+}
+
+.notes__grid {
+    padding: 16px;
+}
+
+.notes__row {
+    margin: 0;
+}
+
+.notes__col {
+    padding: 8px;
+}
+
+.notes__card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.notes__card--icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 8px;
+}
+
+.notes__card--title {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ion-color-dark);
+}
+
+.notes__fab {
+    margin: 16px;
+}
+
+.notes__fab--button {
+    --background: var(--ion-color-primary);
+    --color: var(--ion-color-light);
+}
+
+.notes__container {
+    position: relative;
+    padding: 16px;
+    height: 100%;
+    background: white;
+}
+
+.notes__header--title {
+    font-size: 24px;
+    margin: 0;
+    color: #000;
+}
+
+.notes__list {
+    height: auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 8px;
+}
+
+.notes__item {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 150px;
+    width: 150px;
+}
+
+.notes__item--icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 8px;
+}
+
+.notes__item--label {
+    font-size: 16px;
+    color: #000;
+}
+
+.notes__button--add {
+    cursor: pointer;
+    position: absolute;
+    bottom: 40px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    color: #000;
+    font-size: 24px;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.notes__add--button:active {
+    transform: scale(0.95);
+}
+
+.notes__button--back {
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    color: #333333;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,251 @@
+.settings {
+    padding: 30px;
+    background-color: #ffffff; 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.settings__header {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.settings__back--button {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #000; 
+}
+
+.settings__back--icon {
+    font-size: 24px; 
+}
+
+.settings__title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+.settings__funcs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    gap: 10px;
+}
+
+.settings__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 16px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #808080;
+    text-align: left;
+    cursor: pointer;
+}
+
+.settings__item--icon {
+    font-size: 15px;
+    color: #808080;
+    margin-left: -12px;
+}
+
+.settings__item--text {
+    color: #808080;
+    font-size: 14px;
+    font-weight: 400; 
+}
+
+.settings__item--delete {
+    text-align:center;
+    height: fit-content !important;
+    width: fit-content;
+    margin-top: 30px;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+    border-bottom: none;
+}
+
+.settings__item--textdelete {
+    color: #BD1B23; 
+}
+
+.settings__item--delete .settings__item--icon {
+    color: #BD1B23; 
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal__content {
+    background-color: #ffffff;
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.5);
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.modal__input-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.modal__icon {
+    color: #000;
+    font-size: 15px;
+}
+
+.modal__input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+    padding: 8px 0;
+    background: none;
+}
+
+.modal__button {
+    background-color: #00FF00;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 50%;
+    align-self: center;
+}
+
+.modal__button:hover {
+    background-color: #00e631;
+}
+
+/* .modal__theme-options {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    padding: 16px 0;
+}
+
+.modal__theme-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    background: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modal__theme-button--active {
+    border-color: #00ff37;
+    background-color: rgba(0, 255, 55, 0.1);
+}
+
+.modal__theme-button:hover {
+    border-color: #00ff37;
+} */
+
+.modal__delete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.modal__title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.25);
+    padding-bottom: 10px;
+    width: 90%;
+    text-align: center;
+}
+
+.modal__verify-code {
+    width: 100%;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    gap: 4px;
+}
+
+.modal__input--verify {
+    text-align: center;
+    font-size: 14px;
+    color: rgba(128, 128, 128, 1);
+    border-radius: 25px;
+    border: 1px solid rgba(128, 128, 128, 0.25);
+}
+
+.modal__actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.modal__button--sendCode {
+    flex: 1;
+    background: none;
+    color: #000;
+    margin-left: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    border-radius: 20px;
+}
+
+.modal__button--sendCode:hover {
+    background-color: #ddd;
+}
+
+.modal__button--delete {
+    flex: 1;
+    background-color: #BD1B23;
+    color: white;
+    margin-left: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    border-radius: 20px;
+}
+
+.modal__button--delete:hover {
+    background-color: #BD1B23;
+}
