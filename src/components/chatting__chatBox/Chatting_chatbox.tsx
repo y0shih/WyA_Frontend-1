@@ -1,5 +1,5 @@
 import React from 'react';
-import './chatting_Chatbox.css';
+import './Chatting_chatbox.css';
 
 // chat message interface
 interface Message {

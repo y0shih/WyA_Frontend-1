@@ -3,7 +3,7 @@ import { IonPage } from "@ionic/react";
 import React, { useState, useRef, useEffect } from "react";
 
 // Import components
-import Chatbox from "./Chatbox/chatting_Chatbox";
+import Chatbox from "../../components/chatting__chatBox/Chatting_chatbox";
 // Import css
 import "./chatting_page.css"
 import "../../main.css"
