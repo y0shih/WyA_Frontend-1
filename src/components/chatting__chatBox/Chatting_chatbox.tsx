@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Chatting_chatbox.css';
 
+
+// Split interfaces to type folder
 // chat message interface
 interface Message {
   id: string;
@@ -31,8 +33,15 @@ const Chatbox: React.FC<ChatboxProps> = ({
   onBack, 
   onSendMessage = () => {} 
 }) => {
-  // State for new message input
+  // State
+  const [userOnline, setUserOnline] = useState<boolean>(false)
+
+  // Error
+
+  // Data
   const [newMessage, setNewMessage] = React.useState('');
+
+  // Handlers
 
   // Sample hardcoded messages 
   const staticMessages: Message[] = [
@@ -65,6 +74,12 @@ const Chatbox: React.FC<ChatboxProps> = ({
       text: '44444',
       timestamp: '13:37',
       isOwn: false
+    },
+    {
+      id: '6',
+      text: '44444',
+      timestamp: '13:37',
+      isOwn: false
     }
   ];
 
@@ -83,19 +98,19 @@ const Chatbox: React.FC<ChatboxProps> = ({
   return (
     <div className="chatbox">
       {/* Chat header with friend info */}
-      <div className="chatbox__header">
+      <div className={`chatbox__header ${userOnline ? "online" : ""}`}>
         <button className="chatbox__button--back" onClick={onBack}>
           <i className="fa-solid fa-caret-left"></i>
         </button>
+
         <div className="chatbox__user">
           <div className="chatbox__avatar">
             <img src={friend.avatar} alt={friend.name} />
           </div>
+
           <div className="chatbox__user--info">
-            <span className="chatbox__username">{friend.name}</span>
-            <span className="chatbox__user--status">
-              <i className="fa-solid fa-circle"></i>
-            </span>
+            <p className="chatbox__user--username">{friend.name}</p>
+            <p className="chatbox__user--onlineStatus">Đang hoạt động</p>
           </div>
         </div>
       </div>
@@ -107,6 +122,7 @@ const Chatbox: React.FC<ChatboxProps> = ({
             <div className={`chatbox__bubble--${message.isOwn ? 'sent' : 'received'}`}>
               {message.text}
             </div>
+            
             {message.isOwn && <span className="chatbox__timestamp">{message.timestamp}</span>}
           </div>
         ))}
@@ -121,6 +137,7 @@ const Chatbox: React.FC<ChatboxProps> = ({
           value={newMessage}
           onChange={(e) => setNewMessage(e.target.value)}
         />
+        
         <button type="submit" className="chatbox__button--send">
           <i className="fa-solid fa-paper-plane"></i>
         </button>

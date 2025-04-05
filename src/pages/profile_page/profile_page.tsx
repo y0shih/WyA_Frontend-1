@@ -82,7 +82,7 @@ const ProfilePage: React.FC = () => {
             case 'name':
                 return (
                     <>
-                        <div className="modal__input-group">
+                        <div className="modal__input--group">
                             <i className="fa-solid fa-user-pen modal__icon"></i>
                             <input
                                 type="text"
@@ -93,7 +93,7 @@ const ProfilePage: React.FC = () => {
                             />
                         </div>
 
-                        <div className="modal__input-group">
+                        <div className="modal__input--group">
                             <i className="fa-solid fa-fingerprint modal__icon"></i>
                             <input
                                 type="password"
@@ -108,7 +108,7 @@ const ProfilePage: React.FC = () => {
             case 'email':
                 return (
                     <>
-                        <div className="modal__input-group">
+                        <div className="modal__input--group">
                             <i className="fa-solid fa-envelope modal__icon"></i>
                             <input
                                 type="email"
@@ -119,7 +119,7 @@ const ProfilePage: React.FC = () => {
                             />
                         </div>
 
-                        <div className="modal__input-group">
+                        <div className="modal__input--group">
                             <i className="fa-solid fa-fingerprint modal__icon"></i>
                             <input
                                 type="password"
@@ -134,7 +134,7 @@ const ProfilePage: React.FC = () => {
             case 'password':
                 return (
                     <>
-                        <div className="modal__input-group">
+                        <div className="modal__input--group">
                             <i className="fa-solid fa-lock modal__icon"></i>
                             <input
                                 type="password"
@@ -145,7 +145,7 @@ const ProfilePage: React.FC = () => {
                             />
                         </div>
 
-                        <div className="modal__input-group">
+                        <div className="modal__input--group">
                             <i className="fa-solid fa-fingerprint modal__icon"></i>
                             <input
                                 type="password"
@@ -154,7 +154,7 @@ const ProfilePage: React.FC = () => {
                             />
                         </div>
 
-                        <div className="modal__input-group">
+                        <div className="modal__input--group">
                             <i className="fa-solid fa-fingerprint modal__icon"></i>
                             <input
                                 type="password"
@@ -173,7 +173,7 @@ const ProfilePage: React.FC = () => {
                         </div>
 
                         <div className="modal__actions">
-                            <button className="modal__button modal__button--sendCode" onClick={closeModal}>Send code</button>
+                            <button className="modal__button modal__button--sendCode">Send code</button>
                             
                             <button className="modal__button modal__button--delete" onClick={handleSubmit}>Delete</button>
                         </div>

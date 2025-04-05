@@ -1,27 +1,26 @@
 .settings {
-    padding: 30px;
+    height: 100%;
     background-color: #ffffff; 
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding: 30px;
 }
 
 .settings__header {
-    margin-bottom: 24px;
     display: flex;
     align-items: center;
     gap: 16px;
+    margin-bottom: 24px;
 }
 
 .settings__back--button {
+    color: #000; 
+    font-size: 24px;
+    background: transparent !important;
     display: flex;
     align-items: center;
     gap: 20px;
-    background: none;
     border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #000; 
 }
 
 .settings__back--icon {
@@ -43,21 +42,20 @@
 }
 
 .settings__item {
+    text-align: left;
+    width: 100%;
     display: flex;
     align-items: center;
     gap: 12px;
-    width: 100%;
-    padding: 16px;
     background: none;
+    padding: 16px;
     border: none;
     border-bottom: 1px solid #808080;
-    text-align: left;
-    cursor: pointer;
 }
 
 .settings__item--icon {
-    font-size: 15px;
     color: #808080;
+    font-size: 15px;
     margin-left: -12px;
 }
 
@@ -71,12 +69,12 @@
     text-align:center;
     height: fit-content !important;
     width: fit-content;
-    margin-top: 30px;
-    font-size: 17px;
+    font-size: 16px;
     display: flex;
     justify-content: center;
     padding: 16px;
     border-bottom: none;
+    margin-top: 30px;
 }
 
 .settings__item--textdelete {
@@ -88,6 +86,7 @@
 }
 
 .modal {
+    z-index: 1000;
     position: fixed;
     top: 0;
     left: 0;
@@ -97,22 +96,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
 }
 
 .modal__content {
-    background-color: #ffffff;
-    padding: 12px;
-    border-radius: 12px;
-    box-shadow: 0 0 10px rgba(128, 128, 128, 0.5);
     width: 90%;
-    max-width: 400px;
+    max-width: 90%;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.5);
 }
 
-.modal__input-group {
+.modal__input--group {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -126,25 +124,24 @@
 }
 
 .modal__input {
-    border: none;
     outline: none;
     width: 100%;
     font-size: 14px;
+    background: transparent !important;
     padding: 8px 0;
-    background: none;
+    border: none;
 }
 
 .modal__button {
-    background-color: #00FF00;
+    width: 50%;
     color: white;
+    font-size: 14px;
+    background-color: #00FF00;
+    align-self: center;
+    padding: 12px;
     border: none;
     border-radius: 10px;
-    padding: 12px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    width: 50%;
-    align-self: center;
+    transition: all 0.2s;
 }
 
 .modal__button:hover {
@@ -188,13 +185,13 @@
 }
 
 .modal__title {
+    text-align: center;
+    width: 90%;
     font-size: 16px;
     font-weight: bold;
     color: #000;
     border-bottom: 1px solid rgba(128, 128, 128, 0.25);
     padding-bottom: 10px;
-    width: 90%;
-    text-align: center;
 }
 
 .modal__verify-code {
@@ -213,21 +210,21 @@
 }
 
 .modal__actions {
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    width: 100%;
 }
 
 .modal__button--sendCode {
     flex: 1;
-    background: none;
     color: #000;
-    margin-left: 8px;
+    background: transparent !important;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 16px;
     border-radius: 20px;
+    margin-left: 8px;
 }
 
 .modal__button--sendCode:hover {
@@ -236,13 +233,13 @@
 
 .modal__button--delete {
     flex: 1;
-    background-color: #BD1B23;
     color: white;
-    margin-left: 8px;
+    font-size: 16px;
+    background-color: #BD1B23;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
+    margin-left: 8px;
     border-radius: 20px;
 }
 
