@@ -34,7 +34,6 @@ const NotesPage: React.FC = () => {
 
   return (
     <IonPage>
-      <IonContent>
         {/* Header Container */}
         <div className="notes__container">
           <div className="notes__header">
@@ -68,7 +67,6 @@ const NotesPage: React.FC = () => {
             <i className="fa-solid fa-plus notes__fab--button"></i>
           </button>
         </div>
-      </IonContent>
     </IonPage>
   );
 };

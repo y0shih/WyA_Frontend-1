@@ -1,0 +1,24 @@
+.aboutProject {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.aboutProject__introduction,
+.aboutProject__features {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    ul {
+        padding: 0 20px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #808080;
+        
+    }
+}
+

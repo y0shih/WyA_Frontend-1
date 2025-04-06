@@ -1,0 +1,110 @@
+.dashboard__page {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+}
+
+.dashboard__profileCard--container {
+    height: 70px !important;
+    width: 100%;
+}
+
+.dashboard__profileCard__card {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-radius: 10px;
+    padding: 0 10px;
+    box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.5);
+}
+
+.dashboard__profileCard__imgBox {
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 10px;
+    overflow: hidden;
+
+    .dashboard__profileCard__imgBox--img {
+        height: 40px;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+}
+
+.dashboard__profileCard__infoBox {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+
+    .dashboard__profileCard__infoBox--username {
+        height: fit-content;
+        width: fit-content;
+        font-size: 14px;
+        font-weight: 500;
+        margin: 0 !important;
+    }
+    
+    .dashboard__profileCard__infoBox--gmail {
+        height: fit-content;
+        width: fit-content;
+        font-size: 10px;
+        font-weight: lighter;
+        color: #808080;
+    }
+}
+
+.dashboard__menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.dashboard__menu__titleBox {
+    height: fit-content;
+    width: 100%;
+
+    .dashboard__menu__titleBox--title {
+        text-transform: capitalize;
+    }
+}
+
+.dashboard__menu__listFuncs {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.dashboard__menu__func {
+    width: 130px;
+    aspect-ratio: 1/1;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 20px 20px;
+    box-shadow: 0px 0px 10px rgba(128, 128, 128, 0.5);
+
+    img {
+        width: 70%;
+    }
+}

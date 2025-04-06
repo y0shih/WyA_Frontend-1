@@ -1,0 +1,76 @@
+.aboutTeam {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.aboutTeam__card {
+    height: fit-content;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap : 10px;
+    padding: 20px 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.aboutTeam__card__avatar {
+    height: 120px;
+    aspect-ratio: 1/1;
+    background-color: transparent !important;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    /* border: 1px solid rgba(128, 128, 128, 0.1); */
+
+    img {
+        height: 100%;
+        width: auto;
+    }
+}
+
+.aboutTeam__card__info {
+    height: fit-content;
+    width: 100%;
+    background-color: transparent !important;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    .aboutTeam__card--username {
+        font-size: 20px;
+        font-weight: 600;
+        color: black;
+    }
+
+    .aboutTeam__card--major {
+        font-size: 12px;
+        font-weight: 400;
+        color: #808080;
+    }
+}
+
+.aboutTeam__card__slogan {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        font-size: 14px;
+        line-height: 1.5;
+        color: #808080;
+        text-align: justify;
+    }
+}
