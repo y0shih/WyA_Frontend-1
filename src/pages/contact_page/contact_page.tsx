@@ -87,8 +87,6 @@ const ContactPage: React.FC = () => {
                         </button>
                     </div>
                 </div>
-
-                <Toast typeToast="s" content="Annouce success !!" duration={1} />
             </div>
         </IonPage>
     )

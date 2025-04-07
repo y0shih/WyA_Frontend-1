@@ -28,6 +28,7 @@ import ChattingPage from './pages/chatting_page/chatting_page';
 import ProfilePage from './pages/profile_page/profile_page';
 import NotesPage from './pages/notes_page/notes_page';
 import DashboardPage from './pages/dashboard_page/dashboard_page';
+import MapPage from './pages/map_page/map_page';
 
 setupIonicReact();
 
@@ -41,6 +42,7 @@ const App: React.FC = () => (
         <Route exact path="/profile" component={ProfilePage} />
         <Route exact path="/notes" component={NotesPage} />
         <Route exact path="/about" component={AboutPage} />
+        <Route exact path="/map" component={MapPage} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

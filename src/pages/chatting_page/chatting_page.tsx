@@ -37,10 +37,7 @@ const ChattingPage: React.FC = () => {
       document.addEventListener('mousedown', handleClickOutside);
       document.addEventListener('touchstart', handleClickOutside);
     }
-
-    console.log(searchPopupRef)
-    console.log(isSearchActive)
-
+    
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
       document.removeEventListener('touchstart', handleClickOutside);
@@ -48,7 +45,7 @@ const ChattingPage: React.FC = () => {
 
   }, [isSearchActive]);
 
-  // Handler functions
+  // Handlers
   const handleSearchClick = (e: React.MouseEvent) => {
     e.preventDefault();
     setIsSearchActive(true);
@@ -77,7 +74,7 @@ const ChattingPage: React.FC = () => {
           {/* Header with search and profile */}
           <div className="chat__header">
             <div className="chat__header__container">
-              <div className={`chat__search ${!isSearchActive ? "allBorder" : ""}`}>
+              <div className={`chat__search ${!isSearchActive ? "allBorder" : ""}`} ref={searchPopupRef}>
                 <button className="chat__button--back">
                   <i className="fa-solid fa-caret-left chat__icon--back"></i>
                 </button>
@@ -92,7 +89,7 @@ const ChattingPage: React.FC = () => {
               </div>
 
               {isSearchActive && (
-                <div className="chat__search--popup" ref={searchPopupRef}>
+                <div className="chat__search--history">
                   <div className="chat__search--item">
                     <div className="chat__search--user">
                       <div className="chat__search--userAvartar">
