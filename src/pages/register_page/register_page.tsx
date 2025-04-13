@@ -4,6 +4,9 @@ import React, { use, useEffect, useState } from "react";
 
 // Import components
 
+// Import services
+import createAccount from "../../services/create_account.serv";
+
 // Import css
 import "./register_page.css"
 import "../../main.css"
@@ -129,9 +132,11 @@ const RegisterPage:React.FC = () => {
         checkConfirmPassword(confirmPassword)
     }, [confirmPassword])
 
-    const handleInfo = () => {
+    const handleInfo = async () => {
         if(checkData) {
-            alert("Thông tin đủ điều kiện")
+            // alert("Thông tin đủ điều kiện")
+            const getResponse = await createAccount({username, gmail, password})
+            console.log(getResponse)
         } else {
             alert("Thông tin CHƯA đủ điều kiện")
         }
