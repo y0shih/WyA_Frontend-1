@@ -1,6 +1,7 @@
 // Import library
 import { IonPage } from "@ionic/react";
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 
 // Import components
 import Toast from "../../components/toastMessage/toast";
@@ -13,6 +14,7 @@ const ContactPage: React.FC = () => {
     // State
     const [showLimit__title, setShowLimit__title] = useState<string>("0")
     const [showLimit__content, setShowLimit__content] = useState<string>("0")
+    const redirect = useHistory()
 
     // Error
     
@@ -27,7 +29,6 @@ const ContactPage: React.FC = () => {
 
     // Listening
     useEffect(() => {
-        
         setShowLimit__title(title.length == maxLimit__title? maxLimitAnnounce : `${title.length.toString()} / ${maxLimit__title}`)
         setShowLimit__content(content.length == maxLimit__content? maxLimitAnnounce : `${content.length.toString()} / ${maxLimit__content}`)
 
@@ -45,11 +46,15 @@ const ContactPage: React.FC = () => {
         }
     }
 
+    const handleDirection = () => {
+        redirect.push("/")
+    }
+
     return (
         <IonPage>
             <div className="contact__container">
                 <div className="contact__header">
-                    <button className="contact__button--back">
+                    <button className="contact__button--back" onClick={handleDirection}>
                         <i className="fa-solid fa-caret-left"></i>
                     </button>
 

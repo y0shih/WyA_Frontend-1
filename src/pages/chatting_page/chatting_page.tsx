@@ -1,6 +1,7 @@
 // Import library
 import { IonPage } from "@ionic/react";
 import React, { useState, useRef, useEffect } from "react";
+import { useHistory } from "react-router";
 
 // Import components
 import Chatbox from "../../components/chatting__chatBox/Chatting_chatbox";
@@ -21,6 +22,7 @@ const ChattingPage: React.FC = () => {
     lastMessage: string;
     lastMessageTime: string;
   } | null>(null);
+  const redirect = useHistory()
 
   // Data
   const [search, setSearch] = useState<string>("")
@@ -60,6 +62,10 @@ const ChattingPage: React.FC = () => {
     console.log("Sending message:", message);
     // Implement message sending logic here 
   };
+
+  const handleDirection = () => {
+    redirect.push("/")
+  }
   
   return (
     <IonPage>
@@ -75,7 +81,7 @@ const ChattingPage: React.FC = () => {
           <div className="chat__header">
             <div className="chat__header__container">
               <div className={`chat__search ${!isSearchActive ? "allBorder" : ""}`} ref={searchPopupRef}>
-                <button className="chat__button--back">
+                <button className="chat__button--back" onClick={handleDirection}>
                   <i className="fa-solid fa-caret-left chat__icon--back"></i>
                 </button>
 

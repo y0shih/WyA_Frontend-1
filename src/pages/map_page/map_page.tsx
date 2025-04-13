@@ -2,6 +2,7 @@
 import { IonPage } from "@ionic/react";
 import React, { useEffect, useRef, useState } from "react";
 import "leaflet/dist/leaflet.css";
+import { useHistory } from "react-router";
 
 // Import components
 import { MapContainer, TileLayer, useMap } from "react-leaflet";
@@ -41,6 +42,7 @@ const MapPage: React.FC = () => {
     const mapRef = useRef<any>(null);
     const [isSearchFriend, setIsSearchFriend] = useState<boolean>(false)
     const searchHistory = useRef<HTMLDivElement>(null)
+    const redirect = useHistory()
 
     // Error
 
@@ -71,13 +73,17 @@ const MapPage: React.FC = () => {
         if (!isSearchFriend) setIsSearchFriend(true)
     }
 
+    const handleDirection = () => {
+        redirect.push("/")
+    }
+
 
     return (
         <IonPage>
             <div className="mapPage">
                 <div className="mapPage__header" ref={searchHistory}>
                     <div className={`mainPage__searchBox ${!isSearchFriend ? "allBorder": ""}`}>
-                        <button className="mainPage__searchBox__backBtn">
+                        <button className="mainPage__searchBox__backBtn" onClick={handleDirection}>
                             <i className="fa-solid fa-caret-left mapPage__icon--back"></i>
                         </button>
 

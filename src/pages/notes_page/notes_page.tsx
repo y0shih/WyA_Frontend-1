@@ -1,6 +1,7 @@
 // Import library
 import { IonPage, IonContent } from "@ionic/react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router";
 
 // Import components
 import NoteEditor from "../../components/note__notesEditor/Note_editors";
@@ -12,32 +13,38 @@ import "../../main.css"
 const NotesPage: React.FC = () => {
   // State
   const [isEditorOpen, setIsEditorOpen] = useState(false);
+  const redirect = useHistory()
 
   // Data
   
   // Error
+
+  // Effect
+  useEffect(() => {
+    setIsEditorOpen(false);
+  }, []);
   
   // Handlers
   const handleNoteClick = () => {
     setIsEditorOpen(true);
-  };
+  }
 
   const handleBackClick = () => {
     setIsEditorOpen(false);
-  };
-  
+  }
 
-//component level state
-  if (isEditorOpen) {
-    return <NoteEditor onBack={handleBackClick}/>;
+  const handleDirection = () => {
+    redirect.push("/")
   }
 
   return (
     <IonPage>
         {/* Header Container */}
         <div className="notes__container">
+        {isEditorOpen && (<NoteEditor onBack={handleBackClick}/>)}
+
           <div className="notes__header">
-            <button className="notes__button--back">
+            <button className="notes__button--back" onClick={handleDirection}>
               <i className="fa-solid fa-caret-left"></i>
             </button>
             

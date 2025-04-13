@@ -1,6 +1,7 @@
 // Import library
 import { IonPage } from "@ionic/react";
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import type { JSX } from 'react';
 
 // Import components
@@ -17,6 +18,7 @@ const AboutPage: React.FC = () => {
     const [chooseProject,setChooseProject] = useState<boolean>(false)
     const [chooseTeam,setChooseTeam] = useState<boolean>(false)
     const [chooseTech,setChooseTech] = useState<boolean>(false)
+    const redirect = useHistory()
     
     // Error
     
@@ -48,6 +50,10 @@ const AboutPage: React.FC = () => {
         }
     }, [choice])
 
+    const handleDirection = () => {
+        redirect.push("/")
+    }
+
 
     return (
         <IonPage>
@@ -77,7 +83,7 @@ const AboutPage: React.FC = () => {
                 </div>
 
                 <div className="aboutPage__btnContainer">
-                    <button className="aboutPage__backBtn">back</button>
+                    <button className="aboutPage__backBtn" onClick={handleDirection}>back</button>
                 </div>
             </div>
         </IonPage>

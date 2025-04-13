@@ -1,6 +1,7 @@
 // Import library
 import { IonPage } from "@ionic/react";
 import React, { useState, useRef, useEffect } from "react";
+import { useHistory } from "react-router";
 
 // Import components
 
@@ -9,17 +10,15 @@ import "./profile_page.css"
 import "../../main.css"
 
 const ProfilePage: React.FC = () => {
-    // Modal states
-    const [activeModal, setActiveModal] = useState<'name' | 'email' | 'password' | 'delete' | null>(null);
-    
-    // Input states
+    // States
+    const [activeModal, setActiveModal] = useState<'name' | 'email' | 'password' | 'delete' | 'signout' |null>(null);
     const [newName, setNewName] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [newEmail, setNewEmail] = useState("");
-    
+    const redirect = useHistory()
     const modalRef = useRef<HTMLDivElement>(null);
 
-    // Input handlers
+    // Handlers
     const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setNewName(e.target.value);
     };
@@ -31,6 +30,10 @@ const ProfilePage: React.FC = () => {
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setNewEmail(e.target.value);
     };
+
+    const handleDirection = () => {
+        redirect.push("/")
+      }
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent | TouchEvent) => {
@@ -179,6 +182,12 @@ const ProfilePage: React.FC = () => {
                         </div>
                     </div>
                 );
+
+                case 'signout':
+                    return (
+                        <></>
+                    );
+
             default:
                 return null;
         }
@@ -188,10 +197,11 @@ const ProfilePage: React.FC = () => {
         <IonPage>
             <div className="settings">
                 <div className="settings__header">
-                    <button className="settings__back--button">
+                    <button className="settings__back--button" onClick={handleDirection}>
                         <i className="fa-solid fa-caret-left settings__back-icon"></i>
-                        Setting
                     </button>
+
+                    <h1 className="setting__header--title">Profile</h1>
                 </div>
 
                 <div className="settings__funcs">
@@ -210,9 +220,14 @@ const ProfilePage: React.FC = () => {
                         <p className="settings__item--text">Change your password</p>
                     </button>
 
+                    <button className="settings__item" >
+                        <i className="fas fa-image settings__item--icon"></i>
+                        <p className="settings__item--text">Change your avartar</p>
+                    </button>
+
                     <button className="settings__item">
-                        <i className="fa-solid fa-palette settings__item--icon"></i>
-                        <p className="settings__item--text">Change your theme</p>
+                        <i className="fas fa-sign-out-alt settings__item--icon"></i>
+                        <p className="settings__item--text">Sign out</p>
                     </button>
 
                     <button className="settings__item settings__item--delete" onClick={() => setActiveModal('delete')}>

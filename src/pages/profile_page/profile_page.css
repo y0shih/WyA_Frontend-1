@@ -13,6 +13,12 @@
     margin-bottom: 24px;
 }
 
+.setting__header--title {
+    font-size: 24px;
+    margin: 0;
+    color: #000;
+}
+
 .settings__back--button {
     color: #000; 
     font-size: 24px;
@@ -50,7 +56,19 @@
     background: none;
     padding: 16px;
     border: none;
-    border-bottom: 1px solid #808080;
+    border-bottom: 0.01px solid rgba(128, 128, 128, 0.5);
+    /* box-shadow: 0 0 5px gray; */
+}
+
+.settings__item:nth-last-child(2) {
+    border: none;
+    i {
+        color: #BD1B23;
+    }
+    
+    p {
+        color: #BD1B23;
+    }
 }
 
 .settings__item--icon {
@@ -68,13 +86,17 @@
 .settings__item--delete {
     text-align:center;
     height: fit-content !important;
-    width: fit-content;
+    width: 100%;
     font-size: 16px;
+    background-color: white;
     display: flex;
     justify-content: center;
-    padding: 16px;
+    gap: 12px;
     border-bottom: none;
     margin-top: 30px;
+    padding: 16px;
+    border-radius: 20px;
+    border: 1px solid #BD1B23;
 }
 
 .settings__item--textdelete {
