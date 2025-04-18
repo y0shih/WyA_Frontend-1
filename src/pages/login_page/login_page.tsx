@@ -100,11 +100,10 @@ export default function LoginPage() {
                     </div>
     
                     <div className="loginPage__element loginPage__element--signupAccount">
-                        <a className="loginPage__element--signupDirection" href="#">Create an new account</a>
+                        <a className="loginPage__element--signupDirection" href="/register">Create an new account</a>
                     </div>
                 </div>
             </div>
         </IonPage>
-
     )
 }

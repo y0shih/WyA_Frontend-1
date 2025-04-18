@@ -1,13 +1,13 @@
 // Import library
 import { IonPage } from "@ionic/react";
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 
 // Import components
 
 // Import css
 import "./dashboard_page.css"
 import "../../main.css"
-import { useHistory } from "react-router";
 
 const DashboardPage:React.FC = () => {
     // State

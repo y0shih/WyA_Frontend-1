@@ -26,11 +26,13 @@
     "@types/react-router-dom": "^5.3.3",
     "ionicons": "^7.4.0",
     "leaflet": "^1.9.4",
+    "motion": "^12.7.4",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-leaflet": "^5.0.0",
     "react-router": "^5.3.4",
     "react-router-dom": "^5.3.4",
+    "react-spinners": "^0.16.1",
     "wyafrontend": "file:"
   },
   "devDependencies": {

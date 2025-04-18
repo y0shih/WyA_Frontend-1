@@ -1,10 +1,11 @@
 // Import interface
-import { interface__CreateAccount } from "../types/interface__CreateAccount"
+import { interface__SendOTP } from "../types/interface__OTP"
 
-const createAccount = async (data:interface__CreateAccount) => {
-    const serverResponse = await fetch(`${import.meta.env.VITE_SERVER_GATE}/create-account`,{
+const sendOTP = async (data:interface__SendOTP) => {
+    const serverResponse = await fetch(`${import.meta.env.VITE_SERVER_GATE}/create-account/send-otp`,{
         method: "POST",
         headers: {"Content-Type": "application/json"},
+        credentials: "include",
         body: JSON.stringify({
             data
         })
@@ -17,4 +18,4 @@ const createAccount = async (data:interface__CreateAccount) => {
     return serverResponse
 }
 
-export default createAccount
+export default sendOTP
